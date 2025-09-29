@@ -1,14 +1,26 @@
 using Chat.Hubs;
-
-
+using Microsoft.EntityFrameworkCore;
+using ChatApp.Data;
+using ChatApp.Services;
+using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.OpenApi.Models;
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 builder.Services.AddStackExchangeRedisCache(options =>
 {
     var connection = builder.Configuration.GetConnectionString("Redis");
     options.Configuration = connection;
 });
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 builder.Services.AddCors(options =>
 {
@@ -25,8 +37,24 @@ builder.Services.AddSignalR();
 
 var app = builder.Build();
 
-app.MapHub<ChatHub>("/chat");
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    context.Database.Migrate();
+}
 
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.MapControllers();
+app.MapHub<ChatHub>("/chat");
 app.UseCors();
+app.UseRouting();
+app.UseAuthorization();
+
+
 
 app.Run();
