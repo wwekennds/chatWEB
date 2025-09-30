@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\B-ZONE\\Desktop\\chatWEB\\backend\\Chat\\Chat.csproj": {}
+    "C:\\Users\\B-ZONE\\Desktop\\chatWEB\\backend\\chat\\Chat.csproj": {}
   },
   "projects": {
-    "C:\\Users\\B-ZONE\\Desktop\\chatWEB\\backend\\Chat\\Chat.csproj": {
+    "C:\\Users\\B-ZONE\\Desktop\\chatWEB\\backend\\chat\\Chat.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\B-ZONE\\Desktop\\chatWEB\\backend\\Chat\\Chat.csproj",
+        "projectUniqueName": "C:\\Users\\B-ZONE\\Desktop\\chatWEB\\backend\\chat\\Chat.csproj",
         "projectName": "Chat",
-        "projectPath": "C:\\Users\\B-ZONE\\Desktop\\chatWEB\\backend\\Chat\\Chat.csproj",
+        "projectPath": "C:\\Users\\B-ZONE\\Desktop\\chatWEB\\backend\\chat\\Chat.csproj",
         "packagesPath": "C:\\Users\\B-ZONE\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\B-ZONE\\Desktop\\chatWEB\\backend\\Chat\\obj\\",
+        "outputPath": "C:\\Users\\B-ZONE\\Desktop\\chatWEB\\backend\\chat\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
