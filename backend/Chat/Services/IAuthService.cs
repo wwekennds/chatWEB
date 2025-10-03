@@ -1,6 +1,6 @@
-using ChatApp.Models;
+using Chat.Models;
 
-namespace ChatApp.Services
+namespace Chat.Services
 {
     public interface IAuthService
     {

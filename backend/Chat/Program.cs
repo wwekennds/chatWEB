@@ -1,7 +1,7 @@
 using Chat.Hubs;
 using Microsoft.EntityFrameworkCore;
-using ChatApp.Data;
-using ChatApp.Services;
+using Chat.Data;
+using Chat.Services;
 using Swashbuckle.AspNetCore.Swagger;
 using Microsoft.OpenApi.Models;
 var builder = WebApplication.CreateBuilder(args);
@@ -21,6 +21,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 builder.Services.AddCors(options =>
 {
@@ -49,10 +50,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.MapControllers();
-app.MapHub<ChatHub>("/chat");
+
 app.UseCors();
 app.UseRouting();
+app.MapControllers();
+app.MapHub<ChatHub>("/chat");
 app.UseAuthorization();
 
 

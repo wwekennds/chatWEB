@@ -1,10 +1,10 @@
-using ChatApp.Data;
-using ChatApp.Models;
 using Microsoft.EntityFrameworkCore; 
 using System.Security.Cryptography;
 using System.Text;
+using Chat.Data;
+using Chat.Models;
 
-namespace ChatApp.Services
+namespace Chat.Services
 {
     public class AuthService : IAuthService
     {

@@ -1,7 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Concurrent;
 
-namespace ChatApp.Models
+namespace Chat.Models
 {
     public class User
     {
@@ -45,5 +46,10 @@ namespace ChatApp.Models
         public int Id { get; set; }
         public string Login { get; set; } = string.Empty;
         public DateTime CreatedAt { get; set; }
+    }
+
+    public class UserList
+    {
+        public List<string>? UserInRoom {get; set;}
     }
 }
