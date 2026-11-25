@@ -20,7 +20,7 @@ namespace Chat.Data
                 entity.Property(u => u.Password).IsRequired();
                 entity.Property(u => u.CreatedAt)
                       .IsRequired()
-                      .HasDefaultValueSql("NOW(6)"); 
+                      .HasDefaultValueSql("CURRENT_TIMESTAMP"); 
 
             });
         }
